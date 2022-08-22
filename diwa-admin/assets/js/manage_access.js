@@ -43,7 +43,7 @@
                                     $res = JSON.parse(data);
                                 let accessID = $($res).get(-1)['accessID'];
 
-                             myTable = $("#userstable").DataTable();
+                             myTable = $("#accessTable").DataTable();
                             let row = [];
                             row.push(accessID);
                             row.push(`${$d[0]['value']}`);
@@ -76,7 +76,7 @@ $(document).on("click", '#del', function(){
     
     let del_id = $(this).attr('value');
     
-    let myTable = $("#userstable").DataTable();
+    let myTable = $("#accessTable").DataTable();
     myTable.row($(this).parents('tr')).remove().draw();
 
 
@@ -179,6 +179,22 @@ $(document).on("click", '#updateFormBtn', function(e){
                     $('.modal').hide();
                     $('.fade').hide();
 
+                    let sampleID = $("#updateAccessID").val();
+
+                        console.log(sampleID);
+                        
+                                let myTable = $("#accessTable").DataTable();
+
+                                let row = myTable.row($('#' + sampleID).closest('tr'));
+                                let irow = row.index();
+                                console.log(irow);
+                       
+                                myTable.cell({row:irow,column:0}).data(`${updateAccessID}`);
+                                myTable.cell({row:irow,column:1}).data(`${updateAccessComponentID}`);
+                                myTable.cell({row:irow,column:2}).data(`${updateAccessUserJurID}`);
+                                myTable.cell({row:irow,column:3}).data(`${updateAccessUserTypeAccessID}`);
+                                myTable.cell({row:irow,column:4}).data(`${updateAccessAgencyID}`);
+                                
                     
                     Swal.fire({
                         title: "Succesfully Updated",

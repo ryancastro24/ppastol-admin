@@ -27,7 +27,7 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <button class="btn btn-primary" id="btnadduser" data-toggle="modal" href="#addcomponentModal"><strong><i class='fa fa-plus-circle'></i>  Add Access</strong></button>
-              	<table class="table table-striped text-center" id="userstable">
+              	<table class="table table-striped text-center" id="accessTable">
 	              		<thead>
 	              			<th>AccessID</th>
 	              			<th>ComponentID</th>
@@ -44,7 +44,7 @@
                      <?php foreach($accessDetails as $d): ?>
 	              				<tr>
                           
-	              					<td><?= $d->accessID?></td>
+	              					<td><input type="hidden" id="<?= $d->accessID?>"><?= $d->accessID?></td>
 	              					<td><?= $d->componentID?></td>
 	              					<td><?= $d->userJurID?></td> 
 	              					<td><?= $d->userTypeID?></td>
