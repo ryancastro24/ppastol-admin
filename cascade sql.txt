@@ -1,0 +1,1 @@
+ALTER TABLE `tbl_access` DROP FOREIGN KEY `tbl_access_ibfk_2`; ALTER TABLE `tbl_access` ADD CONSTRAINT `tbl_access_ibfk_2` FOREIGN KEY (`userJurID`) REFERENCES `tbl_user_jurisdiction`(`userJurID`) ON DELETE CASCADE ON UPDATE CASCADE;
